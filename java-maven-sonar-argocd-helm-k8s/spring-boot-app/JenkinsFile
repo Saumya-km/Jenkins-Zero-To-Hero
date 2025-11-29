@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'skuma011/maven-docker-agent:latest'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      args '--privileged -u root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
   stages {
